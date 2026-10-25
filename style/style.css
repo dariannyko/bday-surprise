@@ -214,7 +214,7 @@ video.fun-image {
   width: 55px;
   height: auto;
   top: 19%;
-  left: 52%;
+  left: 50%;
   transform: translate(-50%, -45%);
 }
 
@@ -409,8 +409,8 @@ video.fun-image {
 
 @media (max-width: 500px) {
   .container > div {
-    padding-right: 18px;
-    padding-left: 18px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
 
   .one {
@@ -451,10 +451,6 @@ video.fun-image {
     max-height: 24dvh;
   }
 
-  .idea-5 span {
-    display: block;
-  }
-
   .idea-6 span {
     font-size: clamp(6rem, 28vw, 9rem);
   }
@@ -465,7 +461,7 @@ video.fun-image {
   }
 
   .six img.hat {
-    top: -18px;
+    top: -20px;
   }
 
   .wish-hbd {
@@ -534,7 +530,7 @@ video.fun-image {
   }
 
   .six img.hat {
-    top: 12%;
+    top: 20%;
   }
 }
 
@@ -611,4 +607,14 @@ video.fun-image {
   color: #fff;
   background-color: rgb(21, 161, 237);
   white-space: nowrap;
+}
+.text-box p.hbd-chatbox {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow-wrap: normal;
+  text-align: left;
 }
