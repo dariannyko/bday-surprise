@@ -132,7 +132,7 @@ body {
 }
 
 .five .idea-5 {
-  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-size: clamp(1.5rem, 4.5vw, 2.5rem);
 }
 
 .idea-5 span,
@@ -414,7 +414,7 @@ video.fun-image {
   }
 
   .one {
-    font-size: clamp(2rem, 10vw, 3rem);
+    font-size: clamp(1.75rem, 8vw, 2.75rem);
   }
 
   .two {
@@ -536,4 +536,79 @@ video.fun-image {
   .six img.hat {
     top: 12%;
   }
+}
+
+.four .text-box {
+  padding: 10px 65px 10px 10px;
+}
+
+.text-box p.hbd-chatbox {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  text-align: left;
+}
+
+.text-box .fake-btn {
+  right: 5px;
+  bottom: 5px;
+  white-space: nowrap;
+}
+
+.five .idea-6 {
+  width: 100%;
+  padding: 0 8px;
+  text-align: center;
+}
+
+.idea-6 span {
+  font-size: clamp(3.5rem, 20vw, 12rem);
+  line-height: 1;
+}
+
+@media (max-width: 500px) {
+  .idea-6 span {
+    font-size: clamp(3rem, 18vw, 6rem);
+  }
+}
+
+.four .text-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: min(100%, 600px);
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid #aaa;
+  border-radius: 5px;
+}
+
+.text-box p.hbd-chatbox {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-wrap: normal;
+  text-align: left;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.text-box .fake-btn {
+  position: static;
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 5px 8px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: rgb(21, 161, 237);
+  white-space: nowrap;
 }
