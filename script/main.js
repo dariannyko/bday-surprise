@@ -1,44 +1,60 @@
-// Import the data to customize and insert them into page
-const fetchData = () => {
-  fetch("customize.json")
-    .then((data) => data.json())
-    .then((data) => {
-      dataArr = Object.keys(data);
-      dataArr.map((customData) => {
-        if (data[customData] !== "") {
-          if (customData === "imagePath" || customData === "image2Path") {
-            document
-              .querySelector(`[data-node-name*="${customData}"]`)
-              .setAttribute("src", data[customData]);
-          } else {
-            document.querySelector(
-              `[data-node-name*="${customData}"]`,
-            ).innerText = data[customData];
-          }
-        }
+/* ===== Load customization data ===== */
 
-        // Check if the iteration is over
-        // Run amimation if so
-        if (dataArr.length === dataArr.indexOf(customData) + 1) {
-          animationTimeline();
-        }
-      });
+const fetchData = async () => {
+  try {
+    const response = await fetch("customize.json");
+
+    if (!response.ok) {
+      throw new Error(
+        `Не удалось загрузить customize.json: ${response.status}`,
+      );
+    }
+
+    const data = await response.json();
+
+    Object.entries(data).forEach(([key, value]) => {
+      if (value === "" || value == null) return;
+
+      const element = document.querySelector(`[data-node-name*="${key}"]`);
+
+      if (!element) {
+        console.warn(`Не найден элемент для ключа "${key}"`);
+        return;
+      }
+
+      if (key === "imagePath" || key === "image2Path") {
+        element.setAttribute("src", value);
+      } else {
+        element.innerText = value;
+      }
     });
+  } catch (error) {
+    console.error("Ошибка загрузки customize.json:", error);
+  }
+
+  // Запускаем анимацию даже при ошибке загрузки JSON.
+  animationTimeline();
 };
 
-// Animation Timeline
+/* ===== Animation timeline ===== */
+
 const animationTimeline = () => {
-  // Spit chars that needs to be animated individually
   const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
   const hbd = document.getElementsByClassName("wish-hbd")[0];
 
+  if (!textBoxChars || !hbd || typeof TimelineMax === "undefined") {
+    console.error("Не найдены необходимые элементы или библиотека GSAP.");
+    return;
+  }
+
+  // Разбиваем текст на символы для анимации.
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`;
+    .join("</span><span>")}</span>`;
 
   const ideaTextTrans = {
     opacity: 0,
@@ -63,10 +79,6 @@ const animationTimeline = () => {
       opacity: 0,
       y: 10,
     })
-    .from(".two", 0.4, {
-      opacity: 0,
-      y: 10,
-    })
     .to(
       ".one",
       0.7,
@@ -76,19 +88,9 @@ const animationTimeline = () => {
       },
       "+=2.5",
     )
-    .to(
-      ".two",
-      0.7,
-      {
-        opacity: 0,
-        y: 10,
-      },
-      "-=1",
-    )
     .from(".three", 0.7, {
       opacity: 0,
       y: 10,
-      // scale: 0.7
     })
     .to(
       ".three",
@@ -233,7 +235,6 @@ const animationTimeline = () => {
       {
         opacity: 0,
         y: -50,
-        // scale: 0.3,
         rotation: 150,
         skewX: "30deg",
         ease: Elastic.easeOut.config(1, 0.5),
@@ -268,15 +269,15 @@ const animationTimeline = () => {
     )
     .staggerTo(
       ".eight svg",
-      1.5,
+      0.6,
       {
         visibility: "visible",
         opacity: 0,
         scale: 80,
-        repeat: 3,
-        repeatDelay: 1.4,
+        repeat: 1,
+        repeatDelay: 0.2,
       },
-      0.3,
+      0.1,
     )
     .to(".six", 0.5, {
       opacity: 0,
@@ -305,39 +306,16 @@ const animationTimeline = () => {
       "-=2",
     );
 
-  // tl.seek("currentStep");
-  // tl.timeScale(2);
-
-  //   // Режим проверки экрана .six
-  //   window.birthdayTimeline = tl;
-  //   tl.pause();
-  //   tl.progress(0);
-
-  //   // Показываем только экран поздравления
-  //   document.querySelectorAll(".container > div").forEach((screen) => {
-  //     screen.style.opacity = "0";
-  //     screen.style.visibility = "hidden";
-  //   });
-
-  //   const screen = document.querySelector(".container > div.six");
-  //   screen.style.opacity = "1";
-  //   screen.style.visibility = "visible";
-  //   screen.style.transform = "none";
-  //   screen.style.top = "48%";
-  //   screen.style.zIndex = "10";
-
-  //   // Показываем фото, шапочку и текст без анимации
-  //   screen.querySelectorAll("img, .wish, .wish-hbd, .wish h5").forEach((el) => {
-  //     el.style.opacity = "1";
-  //     el.style.visibility = "visible";
-  //     el.style.transform = "none";
-  //   });
-  // Restart Animation on click
+  // Повторный запуск анимации.
   const replyBtn = document.getElementById("replay");
-  replyBtn.addEventListener("click", () => {
-    tl.restart();
-  });
+
+  if (replyBtn) {
+    replyBtn.addEventListener("click", () => {
+      tl.restart();
+    });
+  }
 };
 
-// Run fetch and animation in sequence
+/* ===== Start ===== */
+
 fetchData();
