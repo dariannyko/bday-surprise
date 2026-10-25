@@ -1,0 +1,519 @@
+/* ===== Base ===== */
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: "Work Sans", sans-serif;
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+
+/* ===== Screens ===== */
+
+.container > div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  padding: 0 clamp(16px, 4vw, 40px);
+  transform: translateY(-50%);
+}
+
+.container .one,
+.container .three,
+.container .four,
+.container .five,
+.container .six,
+.container .nine {
+  max-width: 100%;
+}
+
+/* ===== Screen 1 ===== */
+
+.one {
+  font-size: clamp(2rem, 6vw, 4rem);
+  line-height: 1.15;
+}
+
+.one h1 {
+  margin: 0 0 12px;
+}
+
+.two {
+  margin: 12px 0 0;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: lighter;
+  line-height: 1.45;
+}
+
+/* ===== Screen 3 ===== */
+
+.three {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  line-height: 1.2;
+}
+
+.three p {
+  margin: 0;
+}
+
+/* ===== Screen 4 ===== */
+
+.four .text-box {
+  width: min(100%, 600px);
+  margin: 0 auto;
+  padding: 10px;
+  border: 3px solid #aaa;
+  border-radius: 5px;
+  position: relative;
+}
+
+.text-box p {
+  margin: 0;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+
+.text-box span {
+  visibility: hidden;
+}
+
+.text-box .fake-btn {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  padding: 5px 8px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: rgb(21, 161, 237);
+}
+
+/* ===== Screen 5 ===== */
+
+.container > div.five {
+  min-height: 0;
+}
+
+.five p {
+  position: absolute;
+  top: 50%;
+  left: 16px;
+  right: 16px;
+  margin: 0;
+  transform: translateY(-50%);
+  font-size: clamp(1.25rem, 3.5vw, 2rem);
+  line-height: 1.35;
+}
+
+.idea-3 strong {
+  display: inline-block;
+  padding: 3px 7px;
+  border-radius: 5px;
+}
+
+.five .idea-5 {
+  font-size: clamp(2rem, 6vw, 3.5rem);
+}
+
+.idea-5 span,
+.idea-6 span,
+.wish-hbd span {
+  display: inline-block;
+}
+
+.idea-6 span {
+  font-size: clamp(6rem, 24vw, 12rem);
+  line-height: 1;
+}
+
+/* ===== Images and videos ===== */
+
+.fun-image {
+  display: block;
+  width: auto;
+  max-width: min(78vw, 360px);
+  height: auto;
+  max-height: 32dvh;
+  margin: 8px auto 0;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+video.fun-image {
+  width: min(72vw, 340px);
+  max-height: 30dvh;
+}
+
+.five .fun-image {
+  max-width: min(68vw, 320px);
+  max-height: 29dvh;
+  margin-top: 8px;
+}
+
+.five video.fun-image {
+  width: min(65vw, 300px);
+  max-height: 27dvh;
+}
+
+/* ===== Screen 6: portrait and hat ===== */
+
+.container > div.six {
+  top: 48%;
+  z-index: 1;
+}
+
+.six {
+  position: relative;
+}
+
+.six img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+.six img.weegen-dp {
+  display: block;
+  width: auto;
+  max-width: min(80vw, 420px);
+  max-height: 55dvh;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.six .hat {
+  position: absolute;
+  z-index: 2;
+  width: clamp(42px, 9vw, 76px);
+  height: auto;
+  top: 0;
+  left: 50%;
+  transform: translate(-10%, -55%);
+}
+
+.wish {
+  margin-top: 12px;
+}
+
+.wish-hbd {
+  margin: 0;
+  font-size: clamp(1.7rem, 5vw, 3rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.wish h5 {
+  max-width: 600px;
+  margin: 10px auto 0;
+  font-size: clamp(1rem, 2.8vw, 1.6rem);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* ===== Screen 7: balloons ===== */
+
+.container > div.seven {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  transform: none;
+}
+
+.baloons img {
+  display: inline-block;
+  position: absolute;
+}
+
+.baloons img:nth-child(even) {
+  left: -10%;
+}
+
+.baloons img:nth-child(odd) {
+  right: -10%;
+}
+
+.baloons img:nth-child(3n + 0) {
+  left: 30%;
+}
+
+/* ===== Screen 8: decorations ===== */
+
+.container > div.eight {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: auto;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  padding: 0;
+  transform: none;
+}
+
+.eight svg {
+  position: absolute;
+  width: 25px;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+
+.eight svg:nth-child(1) {
+  top: 7vh;
+  left: 5vw;
+  fill: #bd6ecf;
+}
+
+.eight svg:nth-child(2) {
+  top: 23vh;
+  left: 35vw;
+  fill: #7dd175;
+}
+
+.eight svg:nth-child(3) {
+  top: 33vh;
+  left: 23vw;
+  fill: #349d8b;
+}
+
+.eight svg:nth-child(4) {
+  top: 43vh;
+  left: 57vw;
+  fill: #347a9d;
+}
+
+.eight svg:nth-child(5) {
+  top: 68vh;
+  left: 7vw;
+  fill: #c66053;
+}
+
+.eight svg:nth-child(6) {
+  top: 42vh;
+  left: 77vw;
+  fill: #bfaa40;
+}
+
+.eight svg:nth-child(7) {
+  top: 68vh;
+  left: 83vw;
+  fill: #e3bae8;
+}
+
+.eight svg:nth-child(8) {
+  top: 86vh;
+  left: 37vw;
+  fill: #8762cb;
+}
+
+.eight svg:nth-child(9) {
+  top: 94vh;
+  left: 87vw;
+  fill: #9a90da;
+}
+
+/* ===== Screen 9 ===== */
+
+.nine p {
+  margin: 12px 0;
+  font-size: clamp(1.2rem, 3.5vw, 2rem);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+#replay {
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.weegen2-dp {
+  display: block;
+  width: auto;
+  max-width: min(55vw, 400px);
+  max-height: 48dvh;
+  margin: 12px auto 0;
+  object-fit: contain;
+}
+
+/* ===== Short screens ===== */
+
+@media (max-height: 700px) {
+  .fun-image {
+    max-height: 25dvh;
+    margin-top: 6px;
+  }
+
+  .five .fun-image {
+    max-height: 22dvh;
+    margin-top: 6px;
+  }
+
+  .container > div.six {
+    top: 50%;
+  }
+
+  .six img.weegen-dp {
+    max-height: 36dvh;
+  }
+
+  .wish {
+    margin-top: 6px;
+  }
+
+  .wish h5 {
+    margin-top: 5px;
+  }
+
+  .weegen2-dp {
+    max-height: 18dvh;
+  }
+}
+
+/* ===== Phones ===== */
+
+@media (max-width: 500px) {
+  .container > div {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .one {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .two {
+    font-size: 1rem;
+  }
+
+  .fun-image {
+    max-width: min(82vw, 320px);
+    max-height: 28dvh;
+  }
+
+  video.fun-image {
+    width: min(78vw, 300px);
+    max-height: 27dvh;
+  }
+
+  .five p {
+    left: 8px;
+    right: 8px;
+    font-size: clamp(1.15rem, 5vw, 1.7rem);
+  }
+
+  .five .idea-5 {
+    font-size: clamp(1.8rem, 8vw, 2.6rem);
+  }
+
+  .five .fun-image {
+    max-width: min(74vw, 290px);
+    max-height: 25dvh;
+  }
+
+  .five video.fun-image {
+    width: min(70vw, 270px);
+    max-height: 24dvh;
+  }
+
+  .idea-5 span {
+    display: block;
+  }
+
+  .idea-6 span {
+    font-size: clamp(6rem, 28vw, 9rem);
+  }
+
+  .six img.weegen-dp {
+    max-width: min(78vw, 340px);
+    max-height: 46dvh;
+  }
+
+  .six .hat {
+    top: -18px;
+  }
+
+  .wish-hbd {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  .wish h5 {
+    font-size: 1.1rem;
+  }
+
+  .nine p {
+    font-size: clamp(1.1rem, 4.5vw, 1.5rem);
+  }
+
+  .weegen2-dp {
+    max-width: min(50vw, 180px);
+  }
+}
+.six {
+  position: relative;
+}
+
+.photo-wrapper {
+  position: relative;
+  width: fit-content;
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.six img.weegen-dp {
+  display: block;
+  width: auto;
+  max-width: min(80vw, 420px);
+  max-height: 55dvh;
+  height: auto;
+  object-fit: contain;
+}
+
+.six img.hat {
+  position: absolute;
+  z-index: 2;
+
+  /* Размер шляпы */
+  width: 55px;
+  height: auto;
+
+  /* Положение на фотографии */
+  top: 19%;
+  left: 52%;
+  transform: translate(-50%, -45%);
+}
