@@ -514,8 +514,8 @@ video.fun-image {
   min-width: 40px;
 
   /* Положение относительно фотографии */
-  top: 12%;
-  left: 58%;
+  top: 20%;
+  left: 53%;
 
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -527,7 +527,6 @@ video.fun-image {
   }
 }
 
-/* Убираем старое мобильное смещение шляпы */
 @media (max-width: 500px) {
   .six img.weegen-dp {
     max-width: min(78vw, 340px);
