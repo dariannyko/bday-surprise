@@ -365,7 +365,7 @@ video.fun-image {
 .weegen2-dp {
   display: block;
   width: auto;
-  max-width: min(55vw, 400px);
+  max-width: min(65vw, 400px);
   max-height: 48dvh;
   margin: 12px auto 0;
   object-fit: contain;
@@ -474,10 +474,6 @@ video.fun-image {
 
   .nine p {
     font-size: clamp(1.1rem, 4.5vw, 1.5rem);
-  }
-
-  .weegen2-dp {
-    max-width: min(50vw, 180px);
   }
 }
 
